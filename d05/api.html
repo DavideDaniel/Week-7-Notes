@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+
+        <title>Document</title>
+    
+	<style type="text/css">
+	html{display: block;}
+	body { margin: 0 auto}
+	input { margin: 0 auto}
+	button { margin: 0 auto}
+	</style>
+    </head>
+    
+    <body>
+
+        <input type="text" >
+
+        <button>Add</button>
+    <h1></h1><br>
+    <img><br>
+    <description></description>
+    <script type="text/javascript">
+    var input = document.querySelector("input")
+    var button = document.querySelector("button")
+    var img = document.querySelector("img")
+    var h1 = document.querySelector("h1")
+    var description = document.querySelector("description")
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', function() {
+	    var d = xhr.responseText
+	    var parsed = JSON.parse(d)
+	    h1.innerText = parsed.Title
+	    img.src = parsed.Poster;
+	    description.innerText = parsed.Plot;
+	})
+
+    button.addEventListener("click", function() {
+	    var text = input.value
+	    var urled = encodeURI(text);
+
+	    var url = "http://omdbapi.com/?t=" + urled
+	    xhr.open("GET", url);
+	    xhr.send();
+    })
+    </script>
+
+
+</body>
+</html>

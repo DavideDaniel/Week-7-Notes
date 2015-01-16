@@ -37,3 +37,19 @@ Express
 
 3. req.body.name  --- post
 
+HTTP 
+***
+full browser refresh		|		AJAX
+
+WebSockets
+***
+2 way communication
+
+###API
+
+Application Programming Interface
+interface for program
+
+
+
+

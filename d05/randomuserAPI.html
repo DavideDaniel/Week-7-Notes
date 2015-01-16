@@ -1,0 +1,65 @@
+<html lang="en">
+    <head>
+
+        <title>Document</title>
+    
+    </head>
+    
+    <body>
+
+        <!-- <input type="text" > -->
+
+        <button>Add</button>
+    <h1></h1><br>
+    <img>
+    <ul>
+        <li id="1"></li>
+        <li id="2"></li>
+        <li id="3"></li>
+        <li id="4"></li>
+        <li id="5"></li>
+    </ul>
+    <description></description>
+    <script type="text/javascript">
+    // var input = document.querySelector("input")
+    var button = document.querySelector("button")
+    var img = document.querySelector("img")
+    // var h1 = document.querySelector("h1")
+    var l1 = document.getElementById("1")
+    var l2 = document.getElementById("2")
+    var l3 = document.getElementById("3")
+    var l4 = document.getElementById("4")
+    var l5 = document.getElementById("5")
+    var xhr = new XMLHttpRequest();
+
+   xhr.addEventListener('load', function() {
+        var d = xhr.responseText
+        var parsed = JSON.parse(d)
+        var randomUser = parsed.results[0].user
+        console.log(randomUser);        
+        l1.innerText = randomUser.name.first + randomUser.name.last
+        // h1.innerText = randomUser.email
+        l2.innerText = randomUser.email
+        l3.innerText = randomUser.dob
+        l4.innerText = randomUser.phone
+        l5.innerText = randomUser.SSN
+        img.src = randomUser.picture.medium
+    }) 
+
+    button.addEventListener("click", function() {
+	    // var text = input.value
+	    // var urled = encodeURI(text);
+
+	    var url = "http://api.randomuser.me/" 
+	    xhr.open("GET", url);
+	    xhr.send();
+
+        var d 
+    })
+    </script>
+
+
+</body>
+</html>
+
+
