@@ -35,5 +35,5 @@ Express
 
 2. req.query.name
 
-3. req.body.name  ---- post
+3. req.body.name  --- post
 

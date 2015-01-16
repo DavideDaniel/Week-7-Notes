@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <form action = "/add" method = "post">
+            <input type="text" name = "firstName">
+            <input type="text" name = "lastName">
+            <input type="text" name = "email">
+            <button>Add</button>
+        </form>
+
+        <% if (userDB.length > 0) { %>
+        <ul>
+            <% userDB.forEach (function(user) { %>
+            <li>
+                <%= user.firstName %>
+                <%= user.lastName %>
+                <%= user.email %>
+            </li>
+        </ul>
+        <% }) %>
+        <% } %>
+    </body>
+</html>
