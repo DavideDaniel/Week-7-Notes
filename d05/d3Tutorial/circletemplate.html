@@ -1,0 +1,92 @@
+<html>
+<style>
+</style>
+<body>
+
+ <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <svg id = "top" width="600" height="600" float = "left">
+    <circle cx="40" cy="60" r="10"></circle>
+    <circle cx="80" cy="30" r="10"></circle>
+    <circle cx="120" cy="15" r="10"></circle>
+  </svg>
+  <svg id = "mid" width="600" height="600" position = "fixed">
+    <circle cx="10" cy="200" r="10"></circle>
+    <circle cx="20" cy="300" r="10"></circle>
+    <circle cx="30" cy="150" r="10"></circle>
+  </svg>
+ <script>
+  // //-Step #1, selecting all circles, and applying style to each one
+  var swarm = function (){
+    var svg = d3.select("#top");
+  var circle = svg.selectAll("circle");
+  var randNum = Math.floor(Math.random()*720+200);
+  var randRad = Math.floor(Math.random()*50+10);
+    var r = Math.floor(Math.random()*255+1);
+    var g = Math.floor(Math.random()*255+1);
+    var b = Math.floor(Math.random()*255+1);
+    var a = 1;
+    var randomColor =  "rgba("+r+", "+g+", "+b+", "+a+")";
+  // //-Step #2
+  circle.style("fill", randomColor);
+  circle.attr("r", randRad);
+  // //-Step #3, randomize the position of each circles x coordinate
+  circle.attr("cx", function() { return Math.random() * 720; });
+  // //-Step #4, bind data to seperate elements
+  circle.data([32, 57, randNum]);
+
+
+  // //-Step #5, use the index of an element in its selection. this will override you function above.
+  // circle.attr("cx", function(d, i) { return i * 100 + 30; });
+  //-Step #6, create a 4th circle using .enter method -When joining data to elements, D3 puts any leftover data — or equivalently “missing” elements — in the enter selection
+  // var circle = svg.selectAll("circle").data([32, 57, 112, 293]);
+  var circleEnter = circle.enter().append("circle");
+  //provide the new circle with r, cx and cy attributes
+  circleEnter.attr("cy", 60);
+  circleEnter.attr("cx", function(d, i) { return i * 720 + 3; });
+  circleEnter.attr("r", function(d) { return Math.sqrt(d); });
+  //must reapply color
+  circle.style("fill", randomColor);
+  // //-Step #7, remove a circle with exit method. allows you to select multiple elements
+  // var circle = svg.selectAll("circle")
+  // .data([32, 57]);
+  // circle.exit().remove();
+  // //-Step #8, us this code in the DOM
+  // .data([32, 57, 293], function(d) { return d; });
+}
+  var tinyswarm = function (){
+    var svg = d3.select("#mid");
+  var circle = svg.selectAll("circle");
+
+  circle.style("fill", "#333");
+  circle.attr("r", 2);
+  // //-Step #3, randomize the position of each circles x coordinate
+  circle.attr("cx", function() { return Math.random() * 720 + 200; });
+  circle.attr("cy", function(d, i) { return i * 720 + 200; });
+  // //-Step #4, bind data to seperate elements
+  circle.data([32, 57, 110]);
+
+
+  // //-Step #5, use the index of an element in its selection. this will override you function above.
+  // circle.attr("cx", function(d, i) { return i * 100 + 30; });
+  //-Step #6, create a 4th circle using .enter method -When joining data to elements, D3 puts any leftover data — or equivalently “missing” elements — in the enter selection
+  var circle = svg.selectAll("circle").data([32, 57, 112, 293]);
+  var circleEnter = circle.enter().append("circle");
+  //provide the new circle with r, cx and cy attributes
+  circleEnter.attr("cy", function() { return Math.random() * 720 + 200; });
+  circleEnter.attr("cx", function(d, i) { return i * 100 + 30; });
+  circleEnter.attr("r", function(d) { return Math.sqrt(d); });
+  //must reapply color
+  circle.style("fill", randomColor);
+  // //-Step #7, remove a circle with exit method. allows you to select multiple elements
+  // var circle = svg.selectAll("circle")
+  // .data([32, 57]);
+  // circle.exit().remove();
+  // //-Step #8, us this code in the DOM
+  // .data([32, 57, 293], function(d) { return d; });
+}
+setInterval(swarm, 200);
+setInterval(tinyswarm, 200);
+</script>
+</body>
+</html>
