@@ -1,44 +1,71 @@
 <html lang="en">
     <head>
 
-        <title>Document</title>
-
+        <title>Movie App</title>
     </head>
-    
+
     <body>
+    
 
         <input type="text" >
+        <button>add</button>
 
-        <button>Add</button>
-    <h1></h1><br>
-    <img><br>
-    <description></description>
-    <script type="text/javascript">
-    var input = document.querySelector("input")
-    var button = document.querySelector("button")
-    var img = document.querySelector("img")
-    var h1 = document.querySelector("h1")
-    var description = document.querySelector("description")
-    var xhr = new XMLHttpRequest();
+        <h1></h1><br>
+        <div class = "poster">
+            <img>
+        </div>
 
-    xhr.addEventListener('load', function() {
-	    var d = xhr.responseText
-	    var parsed = JSON.parse(d)
-	    h1.innerText = parsed.Title
-	    img.src = parsed.Poster;
-	    description.innerText = parsed.Plot;
-	})
+        <br>
+        
+        <div class = "info">
+            <img>
+            <description></description>
+        </div>
+        <script type="text/javascript">
+            var array = ["The Imitation Game", "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity", "Her", "Skyfall", "The Imitation Game"]
 
-    button.addEventListener("click", function() {
-	    var text = input.value
-	    var urled = encodeURI(text);
+            var input = document.querySelector("input")
+            var button = document.querySelector("button")
+            var img = document.querySelector("img")
+            var h1 = document.querySelector("h1")
+            var description = document.querySelector("description")
+            
+            
+            
+            
+            var xhr = new XMLHttpRequest(); //making an object from a constructor
+            xhr.open("GET", url);
+            xhr.addEventListener('load', function(e) {
+            var d = xhr.responseText
+            var parsed = JSON.parse(d)
+            // h1.innerText = parsed.Title 
+            
+            for (var i = 0; i < array.length; i++) {
+                    var urled = encodeURI(array[i]);       
+                    var url = "http://omdbapi.com/?t=" + urled
+                    img.src = parsed.Poster;
+                    description.innerText = parsed.Plot;
+                };
 
-	    var url = "http://omdbapi.com/?t=" + urled
-	    xhr.open("GET", url);
-	    xhr.send();
-    })
-    </script>
+            
+        })
+            xhr.send();
 
+            button.addEventListener("click", function() {
+                // for (var i = 0; i < array.length; i++) {
+                //     var urled = encodeURI(array[i]);       
+                //     var url = "http://omdbapi.com/?t=" + urled
+                // };
+                // array.forEach(movie){
+                //     var urled = encodeURI(array[movie]);       
+                //     var url = "http://omdbapi.com/?t=" + urled
+                // }
+            
 
-</body>
+            
+            
+            })
+        </script>
+
+    </body>
 </html>

@@ -37,7 +37,7 @@
         var parsed = JSON.parse(d)
         var randomUser = parsed.results[0].user
         console.log(randomUser);        
-        l1.innerText = randomUser.name.first + randomUser.name.last
+        l1.innerText = randomUser.name.first + "" + randomUser.name.last
         // h1.innerText = randomUser.email
         l2.innerText = randomUser.email
         l3.innerText = randomUser.dob

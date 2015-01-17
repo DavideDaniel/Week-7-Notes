@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Movie Search</title>
+ <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+
+ <div class="search">
+   <input type="text" placeholder="Movie Title">
+   <button> Search </button>
+ </div>
+ <section>
+   <img>
+   <h1></h1>
+   <h2></h2>
+   <h3></h3>
+ </section>
+
+ <script>
+   var button = document.querySelector("button");
+   var input = document.querySelector("input");
+
+   button.addEventListener("click", function(){
+
+     var text = input.value;
+     var safe_url = encodeURI(text)
+     var url = "http://omdbapi.com/?t=" + safe_url;
+
+     var xhr = new XMLHttpRequest(); //making an object from a constructor
+     xhr.open("GET", url); //when I tell you to go get it, this is where I want you to go
+
+     xhr.addEventListener('load', function(e) { //onreadystatechange is an event listener
+       var d = xhr.responseText //comes in in JSON so you will have to parse it
+       var parsed = JSON.parse(d);
+       console.log(parsed);
+
+       var poster = document.querySelector("img");
+       poster.setAttribute("src", parsed.Poster)
+
+       var h1 = document.querySelector("h1");
+       h1.innerText = parsed.Title;
+
+       var h2 = document.querySelector("h2");
+       h2.innerText = "Directed by " + parsed.Director;
+
+       var h3 = document.querySelector("h3");
+       h3.innerText = "Rating: " + parsed.imdbRating;
+     });
+     xhr.send();
+   });
+ </script>
+
+</body>
+</html>
