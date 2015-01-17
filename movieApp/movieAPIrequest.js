@@ -1,14 +1,18 @@
 var button = document.querySelector( "button" )
 
+var movies = [ "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity",
+        "Her", "Skyfall", "The Imitation Game"
+    ]
+
 var counter = 0;
 
 
 
 button.addEventListener( "click", function () {
-    var movies = [ "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity",
-        "Her", "Skyfall", "The Imitation Game"
-    ]
-
+    
+while (counter >= movies.length){
+    counter = 0;
+}
     
     var input = document.querySelector( "input" )
     var img = document.querySelector( "img" )
