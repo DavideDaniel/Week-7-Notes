@@ -9,26 +9,16 @@ button.addEventListener( "click", function () {
     var description = document.querySelector( "description" )
     var xhr = new XMLHttpRequest(); //making an object from a constructor
 
-    var movieRequest = function () {
-        movies.forEach( function ( movie ) {
-                var url = "http://omdbapi.com/?t=" + movie
-                xhr.open( "GET", url );
-            }
-
-        )
-
+    // var urled = encodeURI(array[0]);
+    function movieRequest = function(){
+        movies.forEach(function(movie){
+            var url = "http://omdbapi.com/?t=" + movie        
+        })
     }
-
-
     // var url = "http://omdbapi.com/?t=" + movies[ 0 ]
-    // movieRequest()
-    // console.log(movieRequest());
 
-    $.each(movies, function(i, val){ 
-        var url = "http://omdbapi.com/?t=" + val
-        xhr.open("GET", url)
-        debugger
-    })
+    xhr.open( "GET", movieRequest() );
+    console.log(movieRequest());
     xhr.addEventListener( 'load', function ( e ) {
         var d = xhr.responseText //comes in in JSON so you will have to parse it
         var parsed = JSON.parse( d );
