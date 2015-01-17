@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.section1').html(function(){
-
+  $(document).on("scroll", (function(){
+    movieRequest();
   })
 })

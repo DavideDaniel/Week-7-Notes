@@ -1,3 +1,4 @@
+
 var button = document.querySelector( "button" )
 
 var movies = [ "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity",
@@ -49,6 +50,8 @@ while (counter >= movies.length){
 
     //     xhr.open("GET", url)
     // })
+
+
     
     xhr.addEventListener( 'load', function ( e ) {
         var d = xhr.responseText //comes in in JSON so you will have to parse it
@@ -66,3 +69,11 @@ while (counter >= movies.length){
     counter++
 
 } )
+
+
+  $(window).scroll(function(){
+    console.log("scroll")
+    movieRequest();
+    console.log(url)
+  })
+
