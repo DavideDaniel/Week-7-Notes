@@ -1,71 +1,61 @@
 <html lang="en">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        
 
+        <script src = "jquery.onepage-scroll.js"></script>
+        
+        <!-- <link rel="stylesheet" type="text/css" href="movieApp.css"> -->
         <title>Movie App</title>
     </head>
-
     <body>
-    
+        <div class = "wrapper">
+            <div class = "main">
+                <!-- <input type="text" > -->
 
-        <input type="text" >
-        <button>add</button>
+                <br>
 
-        <h1></h1><br>
-        <div class = "poster">
-            <img>
+                <section class = "section1">
+                    <button>add</button>
+                    <div class = "poster">
+                        <img>
+
+                    </div>
+                    <div class = "info">
+                        <!-- <img> -->
+                        <description></description>
+                    </div>
+                </section>
+                <section class = "section2">
+                    <button>add</button>
+                    <div class = "poster">
+                        <!-- <img> -->
+                    </div>
+                    <div class = "info">
+                        <!-- <img> -->
+                        <description></description>
+                    </div>
+                </section>
+                <section class = "section3">
+                    <button>add</button>
+                    <div class = "poster">
+                        <!-- <img> -->
+                    </div>
+                    <div class = "info">
+                        <!-- <img> -->
+                        <description></description>
+                    </div>
+                </section>
+                <script src = "movieScroll.js">
+                                                    
+                </script>
+            </div>
         </div>
-
-        <br>
-        
-        <div class = "info">
-            <img>
-            <description></description>
-        </div>
-        <script type="text/javascript">
-            var array = ["The Imitation Game", "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity", "Her", "Skyfall", "The Imitation Game"]
-
-            var input = document.querySelector("input")
-            var button = document.querySelector("button")
-            var img = document.querySelector("img")
-            var h1 = document.querySelector("h1")
-            var description = document.querySelector("description")
-            
-            
-            
-            
-            var xhr = new XMLHttpRequest(); //making an object from a constructor
-            xhr.open("GET", url);
-            xhr.addEventListener('load', function(e) {
-            var d = xhr.responseText
-            var parsed = JSON.parse(d)
-            // h1.innerText = parsed.Title 
-            
-            for (var i = 0; i < array.length; i++) {
-                    var urled = encodeURI(array[i]);       
-                    var url = "http://omdbapi.com/?t=" + urled
-                    img.src = parsed.Poster;
-                    description.innerText = parsed.Plot;
-                };
-
-            
-        })
-            xhr.send();
-
-            button.addEventListener("click", function() {
-                // for (var i = 0; i < array.length; i++) {
-                //     var urled = encodeURI(array[i]);       
-                //     var url = "http://omdbapi.com/?t=" + urled
-                // };
-                // array.forEach(movie){
-                //     var urled = encodeURI(array[movie]);       
-                //     var url = "http://omdbapi.com/?t=" + urled
-                // }
-            
-
-            
-            
-            })
-        </script>
-
     </body>
+
+
+    <script type="text/javascript" src="movieAPIrequest.js">
+
+    </script>
+</body>
 </html>
