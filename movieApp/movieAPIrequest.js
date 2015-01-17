@@ -8,6 +8,8 @@ var counter = 0;
 
 
 
+
+
 button.addEventListener( "click", function () {
     
 while (counter >= movies.length){
@@ -15,7 +17,9 @@ while (counter >= movies.length){
 }
     
     var input = document.querySelector( "input" )
-    var img = document.querySelector( "img" )
+    var img1 = document.getElementById( "i1" )
+    var img2 = document.getElementById( "i2" )
+    var img3 = document.getElementById( "i3" )
     var description = document.querySelector( "description" )
     var xhr = new XMLHttpRequest(); //making an object from a constructor
 
@@ -51,7 +55,9 @@ while (counter >= movies.length){
         var parsed = JSON.parse( d );
         console.log( parsed );
 
-        img.src = parsed.Poster;
+        img1.src = parsed.Poster;
+        img2.src = parsed.Poster;
+        img3.src = parsed.Poster;
         description.innerText = parsed.Plot;
 
     } )

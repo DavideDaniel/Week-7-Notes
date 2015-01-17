@@ -1,5 +1,6 @@
   .section1 {
             background-color: #333;
+
             padding-left: 100px;
             font-size: 50px;
             padding-top: 50px;
@@ -16,12 +17,8 @@
             font-size: 50px;
             padding-top: 100px;
             }
-            .section3 h2 {
-            font-size: 45px;
-            padding-left: 700px;
-            text-decoration: italic;
-            }
             body, html {
+                  color: #fff;
             margin: 0;
             overflow: hidden;
             -webkit-transition: opacity 400ms;
@@ -49,26 +46,30 @@
             }
 
             .onepage-pagination {
+            display: inline;
             position: absolute;
-            right: 10px;
-            top: 50%;
+            bottom: 10px;
+            left: 50%;
             z-index: 5;
             list-style: none;
+
             margin: 0;
             padding: 0;
             }
             .onepage-pagination li {
             padding: 0;
             text-align: center;
+            display: inline;
             }
             .onepage-pagination li a{
             padding: 10px;
             width: 4px;
             height: 4px;
-            display: block;
+
             }
             .onepage-pagination li a:before{
             content: '';
+
             position: absolute;
             width: 4px;
             height: 4px;
@@ -78,20 +79,21 @@
             -moz-border-radius: 10px;
             }
             .onepage-pagination li a.active:before{
+
             width: 10px;
             height: 10px;
             background: none;
             border: 1px solid black;
             margin-top: -4px;
-            left: 8px;
+            bottom: 10px;
             }
             .disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
             overflow: auto;
             }
             .disabled-onepage-scroll .onepage-wrapper .section {
             position: relative !important;
-            top: auto !important;
             left: auto !important;
+            bottom: auto !important;
             }
             .disabled-onepage-scroll .onepage-wrapper {
             -webkit-transform: none !important;
