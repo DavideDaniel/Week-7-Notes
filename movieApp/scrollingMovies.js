@@ -1,5 +1,9 @@
-$(document).ready(function(){
-  $(document).on("scroll", (function(){
-    movieRequest();
-  })
-})
+$( ".main" )
+    .onepage_scroll( {
+
+afterMove: function ( index ) {
+            alert("scrolling")  
+
+        }
+
+      })

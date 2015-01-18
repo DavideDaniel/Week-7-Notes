@@ -9,20 +9,13 @@
         <title>Movie App</title>
     </head>
     <body>
-     <script type="text/javascript">
-    $(document).ready(function(){
-        $("section").scroll(function(){
-        console.log("scroll")        
-        })
-    
-    // movieRequest();
-    // console.log(url)
-  })</script>
+     
         <div class = "wrapper">
             <div class = "main">
                 <section class = "section1">
                     <button>add</button>
                     <div class = "poster">
+
                         <img id = "i1">
                      
                     </div>
@@ -54,12 +47,28 @@
                 <script src = "movieScroll.js">
                                                     
                 </script>
+                
             </div>
         </div>
     </body>
 
+<script>
+    
+    
 
+    
+     </script>
     <script type="text/javascript" src="movieAPIrequest.js">
+    $( ".main" )
+    .onepage_scroll( {
+
+afterMove: function ( index ) {
+            alert("scrolling")  
+            movieRequest();
+    console.log(url)
+        }
+
+      })
        
     </script>
    
