@@ -30,25 +30,40 @@ var loadMovie = function() {
     var parsed = JSON.parse( d );
     // console.log( parsed );
 
-    // posterDisplay( parsed )
+    posterDisplay( parsed )
     // img1.src = parsed.Poster;
     // img2.src = parsed.Poster;
     // img3.src = parsed.Poster;
 
     // description.innerText = parsed.Plot;
     
+
+
     var movie = new movieObj(parsed.Title, parsed.Actors, parsed.Director, parsed.imdbRating, parsed.Poster, parsed.Plot);
+    console.log(movie);
     movieDB.push(movie)
     
-    // while( counter >= movies.length)
-    movieDB.forEach(function (movie) {
-        if (parsed.Title === movie.title){
-        movieDB.splice(movie[counter], 1)
-    }})
-    console.log(movieDB);
+    var current = parsed.Title;
+    // console.log(current);
+    movies.forEach(function(movItem){
+        if (movie.title.indexOf(movItem.title) < 0) movieDB.push(movie); 
+})
+        
+           
+    //        if (movie.title == movie.title){
+    //     movieDB.splice(movie[i], 1)
+  // }   movies[i]
+
+    // };
+   
+     movieDB.forEach(function(movie){
+        console.log(movie.title);
+     })
+
 } )
 }
 loadMovie();
+
 
 
 // function posterDisplay = function (movie, div){
@@ -66,10 +81,10 @@ loadMovie();
 
 var posterDisplay = function ( parsed ) {
     $( "img" )
-        // .each( function () {
+        .each( function () {
             $( this )
                 .attr( "src", parsed.Poster )
-        // } )
+        } )
 }
 
 var movieRequest = function () {

@@ -1,109 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>flip</title>
-<link rel="stylesheet" href="flip.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>flip</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="flip.css">
+    </head>
 
-<body>
-	<div class="flip-container">
-
-
-<div class="site-wrap">
-
-	<nav id="body-nav">
-	    <ul>
-	        <li><a href="https://scotch.io">Scotchy scotch scotch</a></li>
-	        <li><a href="https://scotch.io">I <i class="fa fa-heart" style="color: pink;"></i> scotch</a></li>
-	        <li><a href="http://twitter.com/nickforthought"><i class="fa fa-twitter"></i> @nickforthought</a></li>
-	        <li><a href="http://twitter.com/scotch_io"><i class="fa fa-twitter"></i> @scotch_io</a></li>
-        </ul>
-	</nav>
-
-		<a href="#" class="toggle-nav">
-            <span class="burger-x"></span>
-            <span class="option">Click or hit escape</span>
-        </a>
-
-		<div class="push-wrap" style="background-color: rgb(140, 0, 0);">
-
-
-		<div id="content" class="container">
-			<div class="row" id="topper">
-				<div class="col-md-12">
-					<h1>Creative Full Screen CSS3 Menus</h1>
-					<h2 class="lead">Building Creative CSS3 Menus by Simply Toggling a Body Class</h2>
-					<hr>
-				</div>
-			</div>
-			<div class="row examples">
-				<div class="col-md-3 col-sm-6">
-					<h3>Reveals</h3>
-					<a href="/demos/body-class-menus-reveal-left" class="btn btn-primary">Reveal Left</a>
-					<a href="/demos/body-class-menus-reveal-top" class="btn btn-primary">Reveal Top</a>
-					<a href="/demos/body-class-menus-reveal-right" class="btn btn-primary">Reveal Right</a>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<h3>Pushes</h3>
-					<a href="/demos/body-class-menus-push-left" class="btn btn-success">Push Left</a>
-					<a href="/demos/body-class-menus-push-top" class="btn btn-success">Push Top</a>
-					<a href="/demos/body-class-menus-push-right" class="btn btn-success">Push Right</a>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<h3>Overs</h3>
-					<a href="/demos/body-class-menus-over-left" class="btn btn-info">Over Left</a>
-					<a href="/demos/body-class-menus-over-top" class="btn btn-info">Over Top</a>
-					<a href="/demos/body-class-menus-over-right" class="btn btn-info">Over Right</a>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<h3>Parallaxers</h3>
-					<a href="/demos/body-class-menus-parallax-left" class="btn btn-danger">Parallax Left</a>
-					<a href="/demos/body-class-menus-parallax-top" class="btn btn-danger">Parallax Top</a>
-					<a href="/demos/body-class-menus-parallax-right" class="btn btn-danger">Parallax Right</a>
-				</div>
-			</div>
-			<div class="row examples">
-				<div class="col-md-3 col-sm-6">
-					<h3>Fullscreens</h3>
-					<a href="/demos/body-class-menus-fullscreen-fade" class="btn btn-warning">Fullscreen Fade</a>
-					<a href="/demos/body-class-menus-fullscreen-fancy-1" class="btn btn-warning">Fullscreen Fancy 1</a>
-					<a href="/demos/body-class-menus-fullscreen-fancy-2" class="btn btn-warning">Fullscreen Fancy 2</a>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<h3>Scales</h3>
-					<a href="/demos/body-class-menus-scale-1" class="btn btn-custom">Scale 1</a>
-					<a href="/demos/body-class-menus-scale-2" class="btn btn-custom">Scale 2</a>
-					<a href="/demos/body-class-menus-scale-3" class="btn btn-custom">Scale 3</a>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<h3>Angles</h3>
-					<a href="/demos/body-class-menus-angle-reveal" class="btn btn-custom-2">Angle Reveal</a>
-					<a href="/demos/body-class-menus-angle-push" class="btn btn-custom-2">Angle Push</a>
-					<a href="/demos/body-class-menus-angle-over" class="btn btn-custom-2">Angle Over</a>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<h3>Misc / Insane</h3>
-					<a href="/demos/body-class-menus-super-flip" class="btn btn-custom-3 active">Super Flip</a>
-					<a href="/demos/body-class-menus-gravity" class="btn btn-custom-3">Gravity</a>
-					<a href="/demos/body-class-menus-hinge" class="btn btn-custom-3">Hinge</a>
-				</div>
-			</div>
-			<div class="row prev-next">
-				<div class="col-md-12">
-					<a href="/demos/body-class-menus-angle-over" class="prev"><i class="fa fa-angle-left"></i> Previous Demo</a>
-					<a href="/demos/body-class-menus-gravity" class="prev">Next Demo <i class="fa fa-angle-right"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <body>
+    <button></button>
+        <div class="hover panel">
+    <div class="poster">
+        <div class="pad">
+            poster
+        </div>
+    </div>
+    <div class="info">
+        <div class="pad">
+            back
+        </div>
+    </div>
 </div>
 
+		<script type="text/javascript">
+        $(document).ready(function(){
+        $('.hover').onClick(function(){
+            $(this).addClass('flip');
+        },function(){
+            $(this).removeClass('flip');
+        });
+    });
+ </script>
 
-</div>
-
-
-</body>
+	</script>
+    </body>
 </html>
-
-
