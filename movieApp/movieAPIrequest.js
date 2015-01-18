@@ -6,6 +6,11 @@ var movies = [ "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity",
     "Her", "Skyfall", "The Imitation Game"
 ]
 
+var movieConstruct = {
+
+
+}
+
 var counter = 0;
 var xhr = new XMLHttpRequest(); //making an object from a constructor
 
@@ -15,6 +20,7 @@ var movieRequest = function () {
     var img2 = document.getElementById( "i2" )
     var img3 = document.getElementById( "i3" )
     var description = document.querySelector( "description" )
+    var urlArray = [];
     var url = "http://omdbapi.com/?t=" + movies[ counter ]
     xhr.open( "GET", url );
         console.log(url);
@@ -39,25 +45,49 @@ xhr.addEventListener( 'load', function ( e ) {
         console.log(counter);
     }
 
+ 
+button.addEventListener( "click", function () {
+
+   
+
+    
+    
+
+    
+
+    // )
+
+    // var url = "http://omdbapi.com/?t=" + movies[ 0 ]
+    movieRequest()
+    // console.log(movieRequest());
+
+    // $.each(movies, function(i, val){ 
+    //     var url = "http://omdbapi.com/?t=" + val
+
+    //     xhr.open("GET", url)
+    // })
+
+    
+
+    
+
+} )
 
 $(document).ready(function (){
     movieRequest();
 })
 
-$( ".main" ).click(function(){
-    movieRequest()})
+$( ".main" )
 
-    // .onepage_scroll( {
+    .onepage_scroll( {
 
-    //     // afterScroll: function ( index ) {
+        beforeMove: function ( index ) {
 
-    //     //     movieRequest();
-    //     //     // console.log( url )
-    //     // },
+            movieRequest();
+            // console.log( url )
+        },
 
-    // direction: "horizontal"
+    direction: "horizontal",
+    animationTime:500
 
-    // } )
-    // .scroll(function() {
-    //   movieRequest()
-    // })
+    } )
