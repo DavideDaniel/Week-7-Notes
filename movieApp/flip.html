@@ -8,30 +8,29 @@
     </head>
 
     <body>
-    <button></button>
+        <button></button>
         <div class="hover panel">
-    <div class="poster">
-        <div class="pad">
-            poster
+            <div class="poster">
+                <div class="pad">
+                    poster
+                </div>
+            </div>
+            <div class="info">
+                <div class="pad">
+                    back
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="info">
-        <div class="pad">
-            back
-        </div>
-    </div>
-</div>
-
-		<script type="text/javascript">
+        <script type="text/javascript">
         $(document).ready(function(){
-        $('.hover').onClick(function(){
+        $('.hover').hover(function(){
             $(this).addClass('flip');
         },function(){
             $(this).removeClass('flip');
         });
-    });
- </script>
+        });
+        </script>
 
-	</script>
+        </script>
     </body>
 </html>

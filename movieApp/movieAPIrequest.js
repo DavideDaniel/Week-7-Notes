@@ -29,8 +29,8 @@ var loadMovie = function() {
     var d = xhr.responseText //comes in in JSON so you will have to parse it
     var parsed = JSON.parse( d );
     // console.log( parsed );
-
-    posterDisplay( parsed )
+     $( "img" ).attr( "src", parsed.Poster )
+    // posterDisplay( parsed )
     // img1.src = parsed.Poster;
     // img2.src = parsed.Poster;
     // img3.src = parsed.Poster;
@@ -80,11 +80,11 @@ loadMovie();
 
 
 var posterDisplay = function ( parsed ) {
-    $( "img" )
-        .each( function () {
-            $( this )
-                .attr( "src", parsed.Poster )
-        } )
+   
+        // .each( function () {
+            // $( this )
+                
+        // } )
 }
 
 var movieRequest = function () {
@@ -128,13 +128,7 @@ $( ".main" )
 
 } )
 
-$( "img" )
-    .click( function () {
-        alert()
-        $( "nav" )
-            .addClass( "showInfo" )
 
-    } )
 
 $( "section" )
     .next(
@@ -142,3 +136,9 @@ $( "section" )
         posterDisplay()
  )
 
+        $('.hover').hover(function(){
+            $(this).addClass('flip');
+        },function(){
+            $(this).removeClass('flip');
+        });
+        
