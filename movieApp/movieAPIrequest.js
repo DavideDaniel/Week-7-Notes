@@ -7,42 +7,61 @@ var movies = [ "Boyhood", "Whiplash", "Nightcrawler", "Gloria", "Gravity",
 // For Server
 // ==========
 
-// var movieDB = [];
+var movieDB = [];
 
-// var movieObj = function ( title, actors, director, imdbRating, poster, plot ) {
-//     this.title = title
-//     this.actors = actors
-//     this.director = director
-//     this.imdbRating = imdbRating
-//     this.poster = poster
-//     this.plot = plot
-// }
+var movieObj = function ( title, actors, director, imdbRating, poster, plot ) {
+    this.title = title
+    this.actors = actors
+    this.director = director
+    this.imdbRating = imdbRating
+    this.poster = poster
+    this.plot = plot
+}
 
 var counter = 0;
 var xhr = new XMLHttpRequest(); //making an object from a constructor
-xhr.addEventListener( 'load', function ( e ) {
+var loadMovie = function() {
+    xhr.addEventListener( 'load', function ( e ) {
     var img1 = document.getElementById( "i1" )
     var img2 = document.getElementById( "i2" )
     var img3 = document.getElementById( "i3" )
 
     var d = xhr.responseText //comes in in JSON so you will have to parse it
     var parsed = JSON.parse( d );
-    console.log( parsed );
+    // console.log( parsed );
 
-    posterDisplay( parsed )
+    // posterDisplay( parsed )
     // img1.src = parsed.Poster;
     // img2.src = parsed.Poster;
     // img3.src = parsed.Poster;
-    // description.innerText = parsed.Plot;
-    // var movie = new movieObj(parsed.Title, parsed.Actors, parsed.Director, parsed.imdbRating, parsed.Poster, parsed.Plot);
-    // movieDB.push(movie)
-    // while( counter >= movies.length)
-    // movieDB.forEach(function (movie) {
-    //     if (parsed.Title === movie.title){
-    //     movieDB.splice(movie[i], 1)
-    // }
-} )
 
+    // description.innerText = parsed.Plot;
+    
+    var movie = new movieObj(parsed.Title, parsed.Actors, parsed.Director, parsed.imdbRating, parsed.Poster, parsed.Plot);
+    movieDB.push(movie)
+    
+    // while( counter >= movies.length)
+    movieDB.forEach(function (movie) {
+        if (parsed.Title === movie.title){
+        movieDB.splice(movie[counter], 1)
+    }})
+    console.log(movieDB);
+} )
+}
+loadMovie();
+
+
+// function posterDisplay = function (movie, div){
+//     var url = " http://omdbapi.com/?t=" + movie;
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("GET", url);
+//     xhr.addEventListener('load',function(e){
+//         var d = xhr.responseText;
+//         var parsed = JSON.parse(d);
+//         $(div).attr('src', parsed.Poster)
+//     });
+//     xhr.send();
+// };
 
 
 var posterDisplay = function ( parsed ) {
@@ -75,9 +94,9 @@ var movieRequest = function () {
 $( document )
     .ready( function () {
         // $(movies).each(movieRequest());
-        movies.forEach( function () {
+        // movies.forEach( function () {
             movieRequest();
-        } )
+        // } )
     } )
 
 $( ".main" )
